@@ -1,11 +1,16 @@
-from flask import Flask
+from flask import Flask, request, render_template
+import json
+import requests
 
-app = Flask(__name__)
+import urllib.parse
+
+app = Flask(__name__, static_url_path="", static_folder="templates")
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return 'Hello from Flask!'
+    return render_template("index.html")
 
-if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=5000)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
